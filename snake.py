@@ -19,7 +19,6 @@ class Snake:
       box = Turtle(shape = "square")
       box.color("white")
       box.up()
-      box.speed("slowest")
       box.goto(x = x_pos,y= 0)
       self.segs.append(box)
       x_pos -=20
@@ -28,8 +27,10 @@ class Snake:
     box = Turtle(shape = "square")
     box.color("white")
     box.up()
-    box.speed("slowest")
+    box.speed("fastest")
+    box.goto(self.segs[-1].position())
     self.segs.append(box)
+   
 
   def move(self): 
     for x in range(len(self.segs)-1,0,-1):

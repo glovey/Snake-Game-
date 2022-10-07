@@ -19,7 +19,7 @@ food.refresh()
 score = Score()
 
 
-print (f"Let's play Snake, your score is {score}") 
+
 
 #CONTROLS
 screen.onkeypress(snake.up,"Up")
@@ -43,12 +43,16 @@ while game_on:
     food.refresh()
     score.goal()
     
-  
-  for x in range(1,len(snake.segs)-1):
-    if snake.head.distance(snake.segs[x]) < 15:
-      print ("dead")
+  #GAME OVER'score
+  for x in snake.segs[1:]:
+    if snake.head.distance(x) < 15:
+      score.game_over()
+      game_on = False
+      
+  if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    score.game_over()
+    game_on = False
     
-  
 
 
 screen.exitonclick()
