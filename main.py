@@ -19,8 +19,6 @@ food.refresh()
 score = Score()
 
 
-
-
 #CONTROLS
 screen.onkeypress(snake.up,"Up")
 screen.onkey(snake.down,"Down")
@@ -28,7 +26,7 @@ screen.onkey(snake.right,"Right")
 screen.onkey(snake.left,"Left")
 
 #GAME
-game_on= True
+game_on = True
 
 while game_on:
   
@@ -46,12 +44,13 @@ while game_on:
   #GAME OVER'score
   for x in snake.segs[1:]:
     if snake.head.distance(x) < 15:
-      score.game_over()
-      game_on = False
-      
-  if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-    score.game_over()
-    game_on = False
+      score.reset()
+      snake.reset()
+  
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+      score.reset()
+      snake.reset()
+    
     
 
 

@@ -28,7 +28,7 @@ class Snake:
     box.color("white")
     box.up()
     box.speed("fastest")
-    box.goto(self.segs[-1].position())
+    box.goto(self.segs[-1].pos())
     self.segs.append(box)
    
 
@@ -52,3 +52,10 @@ class Snake:
   def down(self):
     if self.head.heading() != UP:
       self.head.setheading(DOWN)
+  
+  def reset(self):
+    for x in self.segs:
+      x.goto(1000,1000)
+    self.segs.clear()
+    self.create_snake()
+    self.head = self.segs[0]
