@@ -51,7 +51,7 @@ while game_on:
       score.reset()
       snake.reset()
     
-    
+  #test commit
 
 
 screen.exitonclick()
